@@ -1,9 +1,14 @@
-import React from "react";
-import { useState } from "react";
+import React, {useState} from "react";
+import { useEffect } from "react";
+
 
 const ItemCount = ({stockProductos}) => {
     const [counter, setCounter] = useState(1);
     const [stock, setStock] = useState(stockProductos);
+
+    useEffect(() => {
+      setStock(stockProductos);
+    }, [stockProductos]);
 
     const sumarProducto = () => {
         if (counter < stock) {
@@ -18,12 +23,13 @@ const ItemCount = ({stockProductos}) => {
     }
 
     const onAdd = () => {
-        if ((stock > 0) && (counter <= stock)){
-            console.log("Agregaste " + counter + " productos al carrito");
-            setStock(stock-counter);
+        if (counter <= stock) {
+            setStock(stock - counter);
             setCounter(1);
+            console.log("Agregaste " + counter + " productos al carrito");
         }   
     }
+
 
     return (
       <div className="container text-center">

@@ -8,8 +8,8 @@ const Item = ({item}) => {
         <div className={"card cardProducto"}>
             <img src={item.imagen} className={"card-img-top"} alt={item.nombre} />
             <div className={"card-body"}>
-              <h5 class={"card-title cardTitulo"}>{item.nombre}</h5>
-              <h5 class={"card-title cardTitulo"}>$ {item.precio}.-</h5>
+              <h5 className={"card-title cardTitulo"}>{item.nombre}</h5>
+              <h5 className={"card-title cardTitulo"}>$ {item.precio}.-</h5>
             </div>
         </div>
         </Link>

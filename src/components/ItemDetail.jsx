@@ -12,7 +12,7 @@ const ItemDetail = ({item}) => {
                 <p className="cardDescripcion">{item.descripcion}</p>
                 <p className="cardTitulo">$ {item.precio}.-</p>
             </div>
-            <ItemCount stockItems={item.stock} />
+            <ItemCount stockProductos={item.stock} />
         </div>
     )
 }
