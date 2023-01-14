@@ -14,6 +14,6 @@ const Item = ({item}) => {
         </div>
         </Link>
     )
-}
+};
 
 export default Item;

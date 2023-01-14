@@ -5,16 +5,13 @@ const ItemList = ({items}) => {
 
     return (
         <div className="d-flex flex-row flex-wrap justify-content-evenly">    
-            {
-            items.map(item => 
+            {items.map(item => 
                 <div key={item.id}>
-                <Item item={item} />
+                    <Item item={item} />
                 </div>
-                )
-            }
-        </div>
-        
+                )}
+        </div>    
     )
-}
+};
 
 export default ItemList;

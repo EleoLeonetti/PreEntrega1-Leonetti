@@ -1,10 +1,11 @@
-import React, {useState} from "react";
-import { useEffect } from "react";
+import React, {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
 
 
-const ItemCount = ({stockProductos}) => {
+const ItemCount = ({stockProductos, onAdd}) => {
     const [counter, setCounter] = useState(1);
     const [stock, setStock] = useState(stockProductos);
+    const [vendido, setVendido] = useState(false);
 
     useEffect(() => {
       setStock(stockProductos);
@@ -14,56 +15,43 @@ const ItemCount = ({stockProductos}) => {
         if (counter < stock) {
             setCounter(counter + 1);
         }    
-    }
+    };
 
     const restarProducto = () => {
         if (counter > 1) {
             setCounter(counter - 1);
         }    
-    }
+    };
 
-    const onAdd = () => {
-        if (counter <= stock) {
-            setStock(stock - counter);
-            setCounter(1);
-            console.log("Agregaste " + counter + " productos al carrito");
-        }   
-    }
+    const addToCart = (quantity) => {
+        setStock(stock - quantity);
+        setCounter(1);
+        setVendido(true);
+        onAdd(quantity);  
+    };
 
 
     return (
       <div className="container text-center">
         <div className="row mb-3">
           <div className="col-md-12">
-            <div
-              className="btn-group"
-              role="group"
-              aria-label="Basic outlined example"
-            >
-              <button
-                type="button"
-                className="btn btn-outline-primary itemCount"
-                onClick={restarProducto}
-              >
+            <div className="btn-group" role="group" aria-label="Basic outlined example">
+              <button type="button" className="btn btn-outline-primary itemCount" onClick={restarProducto}>
                 -
               </button>
               <button type="button" className="btn btn-outline-primary itemCount">
                 {counter}
               </button>
-              <button
-                type="button"
-                className="btn btn-outline-primary itemCount"
-                onClick={sumarProducto}
-              >
+              <button type="button" className="btn btn-outline-primary itemCount" onClick={sumarProducto}>
                 +
               </button>
             </div>
           </div>
           <div className="row mt-3">
             <div className="col-md-12">
-              <button className="btn btn-outline-primary itemCount" onClick={onAdd}>
+              {vendido ? <Link to={"/cart"} className="btn btn-outline-primary itemCount">Finalizar Compra</Link> : <button className="btn btn-outline-primary itemCount" onClick={() => {addToCart(counter)}}>
                 Agregar al carrito
-              </button>
+              </button>}
             </div>
           </div>
         </div>

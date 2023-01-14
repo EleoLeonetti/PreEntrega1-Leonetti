@@ -54,3 +54,49 @@ body{
   border-color: #106567;
   color: #f9fbf1;
 }
+.home{
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btnBlanco{
+  background-color: #f9fbf1;
+  color: #106567;
+  font-weight: bold;
+}
+.btnCeleste{
+  width: 50%;
+  margin-bottom: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 2px #106567;
+  background-color: #81EFE6;
+  color: #106567;
+  font-weight: bold;
+}
+.bodyCart{
+  border: solid 2px #106567;
+  background-color: #f9fbf1;
+  color: #106567;
+  border-radius: 10px;
+}
+.btnAzul{
+  background-color: #106567;
+  color: #f9fbf1;
+  font-weight: bold;
+}
+.btnAzul:hover{
+  background-color: #106567;
+  color: #f9fbf1;
+  font-weight: bold;
+}
+.bodyCheckout{
+  background-color: #f9fbf1;
+  color: #106567;
+  border-radius: 10px;
+}
+.spinner-grow{
+  color: #106567;
+}
+
+
